@@ -1,5 +1,4 @@
 package com.mikelnevado.poo.redsocial;
-
 public class PerfilRedSocial {
 
 	// Attributes
@@ -10,7 +9,7 @@ public class PerfilRedSocial {
 	private String place;
 	private int followerCount;
 	private int postsCount;
-	private boolean profileState;
+	private EstadoPerfil profileState;
 	private boolean verifiedAccount;
 
 	// Fielded constructor
@@ -20,7 +19,7 @@ public class PerfilRedSocial {
 		this.visibleName = visibleName;
 		this.bio = bio;
 		this.place = place;
-		this.profileState = true;
+		this.profileState = EstadoPerfil.COMPLETADO;
 	}
 
 	
@@ -74,11 +73,11 @@ public class PerfilRedSocial {
 		this.postsCount = postsCount;
 	}
 
-	public boolean isProfileState() {
+	public EstadoPerfil isProfileState() {
 		return profileState;
 	}
 
-	public void setProfileState(boolean profileState) {
+	public void setProfileState(EstadoPerfil profileState) {
 		this.profileState = profileState;
 	}
 
@@ -100,7 +99,15 @@ public class PerfilRedSocial {
 		System.out.println(getPostsCount());
 	}
 	
+	public void addFollowers(int moreFollowers) {
+		this.followerCount+= moreFollowers;
+	}
 	
+	public void changeState(EstadoPerfil nuevoEstado){
+		this.profileState = nuevoEstado;
+	}
 	
-	
+	public EstadoPerfil isActive() {
+		return profileState;
+	}
 }
