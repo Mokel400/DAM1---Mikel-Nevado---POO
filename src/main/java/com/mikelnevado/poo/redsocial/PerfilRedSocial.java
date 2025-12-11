@@ -1,4 +1,6 @@
 package com.mikelnevado.poo.redsocial;
+import java.util.List;
+import java.util.ArrayList;
 public class PerfilRedSocial {
 
 	// Attributes
@@ -11,6 +13,7 @@ public class PerfilRedSocial {
 	private int postsCount;
 	private EstadoPerfil profileState;
 	private boolean verifiedAccount;
+	private List<Publicacion> postsList;
 
 	// Fielded constructor
 	public PerfilRedSocial(String userName, boolean visibleName, String bio, String place) {
@@ -20,6 +23,9 @@ public class PerfilRedSocial {
 		this.bio = bio;
 		this.place = place;
 		this.profileState = EstadoPerfil.COMPLETADO;
+		this.verifiedAccount = false;
+		this.postsCount = 0;
+		this.postsList = new ArrayList<Publicacion>();
 	}
 
 	
@@ -93,14 +99,21 @@ public class PerfilRedSocial {
 	//Methods
 	
 	public void showInfo() {
-		System.out.println(getUserName());
-		System.out.println(getFollowerCount());
-		System.out.println(getBio());
-		System.out.println(getPostsCount());
+		System.out.println("Nombre de ususario: " + getUserName());
+		System.out.println("Cantidad de seguidores: " + getFollowerCount());
+		System.out.println("Bio: " + getBio());
+		System.out.println("Cantidad de publicaciones: " + getPostsCount());
 	}
 	
 	public void addFollowers(int moreFollowers) {
-		this.followerCount+= moreFollowers;
+		if (moreFollowers > 0) {
+			followerCount += moreFollowers;
+		} else {
+			System.out.println("La cantidad debe ser mas alta");
+			
+			//Hay que pedir otra cantidad distinta
+			//addFollowers(moreFollowers);
+		}
 	}
 	
 	public void changeState(EstadoPerfil nuevoEstado){
@@ -110,4 +123,18 @@ public class PerfilRedSocial {
 	public EstadoPerfil isActive() {
 		return profileState;
 	}
+	
+	public void makePost(String postText) {
+		this.postsList.add(new Publicacion(postText));
+		postsCount++;
+	}
+	
+	public void showPosts() {
+		System.out.println(this.postsList);
+	}
+	
+	
 }
+
+
+

@@ -1,5 +1,4 @@
 package com.mikelnevado.poo.redsocial;
-
 import java.time.LocalTime;
 
 public class Publicacion {
@@ -13,9 +12,9 @@ public class Publicacion {
 	// Fielded constructor
 
 	public Publicacion(String contenido) {
-		super();
 		this.contenido = contenido;
 		this.fecha = LocalTime.now();
+		this.likes = 0;
 	}
 
 	// Getters and Setters
@@ -48,15 +47,16 @@ public class Publicacion {
 	//Methods
 	
 	public void mostrar() {
-		getFecha();
-		getLikes();
+		System.out.println(getContenido());
+		System.out.println(getFecha());
+		System.out.println(getLikes());
 	}
 	
-	public void darMeGusta() {
-	likes++;
+	public void giveLikes() {
+		likes++;
 	}
 	
-	public int verMeGusta() {
+	public Integer showLikes() {
 		return likes;
 	}
 	
