@@ -47,9 +47,9 @@ public class Publicacion {
 	//Methods
 	
 	public void mostrar() {
-		System.out.println(getContenido());
-		System.out.println(getFecha());
-		System.out.println(getLikes());
+		System.out.println("Contenido: " + contenido);
+		System.out.println("Fecha: " + fecha);
+		System.out.println("Likes: " + likes);
 	}
 	
 	public void giveLikes() {

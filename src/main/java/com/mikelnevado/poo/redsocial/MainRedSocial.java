@@ -19,14 +19,18 @@ public class MainRedSocial {
 		for (int i = 0; i < perfiles.size(); i++) {
 			perfiles.get(i).showInfo();
 			perfiles.get(i).showPosts();
+			System.out.println("                    ");
 		}
 		
 		perfiles.get(1).addFollowers(20);
 		perfiles.get(2).makePost("Buenos días");
+		System.out.println("-------------------------");
+		System.out.println("                    ");
 		
 		for (int i = 0; i < perfiles.size(); i++) {
 			perfiles.get(i).showInfo();
 			perfiles.get(i).showPosts();
+			System.out.println("                    ");
 		}
 	}
 
