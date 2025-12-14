@@ -10,7 +10,7 @@ public class PerfilRedSocial {
 	private String bio;
 	private String place;
 	private int followerCount;
-	private int postsCount;
+
 	private EstadoPerfil profileState;
 	private boolean verifiedAccount;
 	private List<Publicacion> postsList;
@@ -24,7 +24,6 @@ public class PerfilRedSocial {
 		this.place = place;
 		this.profileState = EstadoPerfil.COMPLETADO;
 		this.verifiedAccount = false;
-		this.postsCount = 0;
 		this.postsList = new ArrayList<Publicacion>();
 	}
 
@@ -72,11 +71,7 @@ public class PerfilRedSocial {
 	}
 
 	public int getPostsCount() {
-		return postsCount;
-	}
-
-	public void setPostsCount(int postsCount) {
-		this.postsCount = postsCount;
+		return this.postsList.size();
 	}
 
 	public EstadoPerfil isProfileState() {
@@ -124,9 +119,9 @@ public class PerfilRedSocial {
 		return profileState;
 	}
 	
-	public void makePost(String postText) {
+	public void addPost(String postText) {
 		this.postsList.add(new Publicacion(postText));
-		postsCount++;
+
 	}
 	
 	public void showPosts() {
