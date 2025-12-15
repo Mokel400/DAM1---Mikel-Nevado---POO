@@ -1,19 +1,22 @@
 package com.mikelnevado.poo.redsocial;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Publicacion {
 
 	// Attributes
 
 	private String contenido;
-	private LocalTime fecha;
+	private String fechaHora;
 	private Integer likes;
+	
+	private static final String FORM_DATE_TIME = "dd-mm-yyyy / HH:MM:ss";
 
 	// Fielded constructor
 
 	public Publicacion(String contenido) {
 		this.contenido = contenido;
-		this.fecha = LocalTime.now();
+		this.fechaHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern(FORM_DATE_TIME));
 		this.likes = 0;
 	}
 
@@ -27,12 +30,12 @@ public class Publicacion {
 		this.contenido = contenido;
 	}
 
-	public LocalTime getFecha() {
-		return fecha;
+	public String getFecha() {
+		return fechaHora;
 	}
 
-	public void setFecha(LocalTime fecha) {
-		this.fecha = fecha;
+	public void setFecha(String fecha) {
+		this.fechaHora = fecha;
 	}
 
 	public Integer getLikes() {
@@ -48,7 +51,7 @@ public class Publicacion {
 	
 	public void mostrar() {
 		System.out.println("Contenido: " + contenido);
-		System.out.println("Fecha: " + fecha);
+		System.out.println("Fecha: " + fechaHora);
 		System.out.println("Likes: " + likes);
 	}
 	
@@ -58,6 +61,10 @@ public class Publicacion {
 	
 	public Integer showLikes() {
 		return likes;
+	}
+	
+	private String formatTimeDate() {
+		return this.fechaHora;
 	}
 	
 }
