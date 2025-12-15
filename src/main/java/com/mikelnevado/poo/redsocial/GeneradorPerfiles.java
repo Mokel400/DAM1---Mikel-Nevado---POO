@@ -14,7 +14,7 @@ public class GeneradorPerfiles {
 		PerfilRedSocial p1 = new PerfilRedSocial(userName, visibleName, bio, place);
 		
 		for (int i= 0; i < postCount; i++) {
-			p1.makePost("Hola " + i);
+			p1.addPost("Hola " + i);
 		
 		}
 		
